@@ -1,0 +1,32 @@
+<script>
+// import { mapActions } from 'vuex';
+import { store } from '@/store/index';
+import UserCard from './UserCard.vue';
+
+export default {
+  name: 'Testimonials',
+  components: { UserCard },
+  data() {
+
+  },
+  methods: {
+  },
+  computed: {
+    getUsersList: () => store.state.userData,
+  },
+};
+</script>
+
+<template>
+  <div class="testimonials">
+    <h2 class="testimonials__header">Testimonials</h2>
+    <div class="slider">
+      <ul class="slider__list">
+        <UserCard v-for="user in this.getUsersList" :key="user.id" :img-src="user.picture.thumbnail"
+          :user-name="user.name.first + ' ' + user.name.last" card-text="Lorem ipsum sin dolor amet" />
+      </ul>
+      <input type="range" name="" id="" min="1" max="8" value="2" />
+    </div>
+    <button class="button">Leave feedback</button>
+  </div>
+</template>
