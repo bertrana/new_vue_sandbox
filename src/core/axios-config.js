@@ -1,10 +1,8 @@
-const axios = require('axios');
+import axios from "axios";
 
 export const http = axios.create({
-  baseURL: 'https://randomuser.me',
+  baseURL: "https://randomuser.me",
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
+    "Content-Type": "application/x-www-form-urlencoded",
   },
 });
-
-http.interceptors.response.use();

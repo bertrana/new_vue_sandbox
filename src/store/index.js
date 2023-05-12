@@ -1,17 +1,30 @@
-import { createStore } from 'vuex';
+import { createStore } from "vuex";
+import getUser from "@/core/getUser";
 
 export const store = createStore({
-  state: {
-    userData: [],
+  state() {
+    return {
+      userData: [],
+    };
   },
-  getters: {},
-  mutations: {},
+
   actions: {
     async LOAD_USER_DATA({ state, commit }, num) {
       const data = await getUser(num);
 
-      commit('SET_USER_DATA', { data });
+      commit("SET_USER_DATA", { data });
     },
   },
-  modules: {},
+
+  mutations: {
+    async SET_USER_DATA(state, { data }) {
+      state.userData = data;
+    },
+  },
+
+  getters: {
+    sortedByName(state) {
+      return state.userData.sort((user) => user.name);
+    },
+  },
 });

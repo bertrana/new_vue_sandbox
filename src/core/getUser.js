@@ -5,6 +5,7 @@ export default async function getUser(num) {
 
   try {
     const response = await http.get(url);
+
     const data = response.data.results;
 
     return data;

@@ -1,16 +1,10 @@
 <script>
-// import { mapActions } from 'vuex';
 import { store } from '@/store/index';
 import UserCard from './UserCard.vue';
 
 export default {
   name: 'Testimonials',
   components: { UserCard },
-  data() {
-
-  },
-  methods: {
-  },
   computed: {
     getUsersList: () => store.state.userData,
   },
