@@ -1,12 +1,14 @@
 <script>
-import { store } from '@/store/index';
+// import { store } from '@/store/index';
 import UserCard from './UserCard.vue';
 
 export default {
   name: 'Testimonials',
   components: { UserCard },
   computed: {
-    getUsersList: () => store.state.userData,
+    getUsersList() {
+      return this.$store.state.userData
+    },
   },
 };
 </script>

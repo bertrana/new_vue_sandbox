@@ -5,8 +5,74 @@
 		<title>Link</title>
 	</head>
 	<body>
-		<!-- flex делает кликабельным всю область -->
-		<!-- pos: absolute желательно не применять -->
-		<a href="#">Click</a>
+		<div class="container">
+			<div class="block"></div>
+			<h1 class="header">Lorem ipsum</h1>
+			<a
+				class="link"
+				href="#"
+				>Click</a
+			>
+		</div>
 	</body>
 </html>
+
+<style>
+	body {
+		margin: 0;
+	}
+
+	/* Using grid */
+	.container {
+		height: 200px;
+
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas:
+			'block header'
+			'block link';
+	}
+
+	.block {
+		height: 100%;
+
+		grid-area: block;
+
+		background-color: #1f1f1f;
+	}
+
+	.header {
+		grid-area: header;
+	}
+
+	.link {
+		grid-area: link;
+		block-size: min-content;
+
+		justify-self: end;
+		align-self: end;
+
+		text-align: end;
+		border: 2px solid red;
+	}
+
+	/* Using flex */
+	/* .container {
+		height: 200px;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.block {
+		width: 50%;
+		height: 100%;
+
+		background-color: #1f1f1f;
+	}
+
+	.link {
+		display: table;
+		margin-top: auto;
+		margin-left: auto;
+	} */
+</style>

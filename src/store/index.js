@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import getUser from "@/core/getUser";
 
-export const store = createStore({
+export default createStore({
   state() {
     return {
       userData: [],
