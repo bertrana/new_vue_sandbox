@@ -1,15 +1,31 @@
 <script>
 // import { store } from '@/store/index';
 import UserCard from './UserCard.vue';
+import Pagination from '@/components/Pagination.vue';
 
 export default {
   name: 'Testimonials',
-  components: { UserCard },
+  components: {
+    UserCard,
+    Pagination
+  },
   computed: {
     getUsersList() {
       return this.$store.state.userData
     },
   },
+  methods: {
+    getNewUsers(newPage) {
+      this.$store.dispatch("LOAD_USER_DATA", 10);
+      this.currentPage = newPage;
+    }
+  },
+  data() {
+    return {
+      pages: [1, 2, 3],
+      currentPage: 1
+    }
+  }
 };
 </script>
 
@@ -21,7 +37,7 @@ export default {
         <UserCard v-for="user in this.getUsersList" :key="user.id" :img-src="user.picture.thumbnail"
           :user-name="user.name.first + ' ' + user.name.last" card-text="Lorem ipsum sin dolor amet" />
       </ul>
-      <input type="range" name="" id="" min="1" max="8" value="2" />
+      <Pagination :currentPage="this.currentPage" :pages="this.pages" @reload-page="getNewUsers"></Pagination>
     </div>
     <button class="button">Leave feedback</button>
   </div>

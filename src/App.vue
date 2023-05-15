@@ -1,6 +1,4 @@
 <script>
-// import { store } from "./store";
-
 export default {
   mounted() {
     this.init()
@@ -8,7 +6,6 @@ export default {
   methods: {
     init() {
       this.$store.dispatch("LOAD_USER_DATA", 10);
-      // console.log(this.$store.state.userData);
     }
   }
 }
