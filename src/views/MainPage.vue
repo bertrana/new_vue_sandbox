@@ -1,5 +1,5 @@
 <script>
-import Testimonials from '../components/Testimonials.vue';
+import Testimonials from '@/components/Testimonials.vue';
 
 export default {
   name: 'MainPage',
