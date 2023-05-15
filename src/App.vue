@@ -1,16 +1,17 @@
 <script>
+import { useUserStore } from "@/stores/UserStore";
+
 export default {
   mounted() {
     this.init()
   },
   methods: {
-    init() {
-      this.$store.dispatch("LOAD_USER_DATA", 10);
+    async init() {
+      const { LOAD_USER_DATA } = useUserStore();
+      await LOAD_USER_DATA(10);
     }
   }
 }
-
-
 </script>
 
 <template>

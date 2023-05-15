@@ -17,7 +17,7 @@ export default createStore({
   },
 
   mutations: {
-    async SET_USER_DATA(state, { data }) {
+    SET_USER_DATA(state, { data }) {
       state.userData = data;
     },
   },

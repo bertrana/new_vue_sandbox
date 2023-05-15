@@ -1,14 +1,13 @@
 <script>
+import { useUserStore } from "@/stores/UserStore";
 import UserCard from "@/components/UserCard.vue"
-// import { store } from "../store";
-
 
 export default {
   name: 'ZooPage',
   components: { UserCard },
   computed: {
     getUsersList() {
-      return this.$store.state.userData
+      return useUserStore().userData
     },
   },
 };
